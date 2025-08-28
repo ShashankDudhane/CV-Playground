@@ -1,0 +1,108 @@
+/* General page styling */
+body {
+  background: linear-gradient(135deg, #f0f4ff, #fefefe);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Tab customization */
+.nav-tabs .nav-link {
+  border: none;
+  color: #555;
+  background: #f8f9fa;
+  transition: all 0.3s ease-in-out;
+}
+.nav-tabs .nav-link:hover {
+  background: #e8f0ff;
+  color: #007bff;
+}
+.nav-tabs .nav-link.active {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+
+/* Card styling */
+.card {
+  border-radius: 1rem;
+}
+
+/* Canvas/Image borders */
+#output, #inputImg {
+  border: 2px solid #ddd;
+}
+
+/* Buttons */
+.btn {
+  transition: transform 0.2s ease-in-out;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* Dynamic controls layout */
+#dynamicControls > div { margin-right: 1rem; display: inline-block; }
+#dynamicControls label { font-weight: 600; margin-right: .5rem; }
+
+
+
+/* Custom Explain Panel Styling */
+.custom-explain-card {
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.custom-explain-card .card-header {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+#explainPanel {
+  max-height: 360px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Scrollbar Styling */
+#explainPanel::-webkit-scrollbar {
+  width: 8px;
+}
+#explainPanel::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 4px;
+}
+#explainPanel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Step styling inside panel */
+#explainPanel .mb-3 {
+  padding: 0.8rem 1rem;
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem !important;
+  background: #fafafa;
+  transition: background 0.3s ease;
+}
+
+#explainPanel .mb-3:hover {
+  background: #f0f7ff;
+}
+
+/* Headings inside steps */
+#explainPanel h6 {
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 0.4rem;
+}

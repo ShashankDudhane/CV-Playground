@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Vision Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <h1 class="text-center mb-5 fw-bold display-5 text-primary">
+      CV Playground <span class="text-dark">🚀</span>
+    </h1>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs justify-content-center shadow-sm rounded-4 overflow-hidden mb-4" id="sectionTabs">
+      <li class="nav-item">
+        <button class="nav-link active px-4 py-3 fw-semibold" data-section="intensity">🎚️ Intensity transformation</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link px-4 py-3 fw-semibold" data-section="smoothing">🧼 Smoothing spatial filters</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link px-4 py-3 fw-semibold" data-section="edge">⚡ Edge Detection</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link px-4 py-3 fw-semibold" data-section="corner">📍 Corner detection</button>
+      </li>
+      <!-- NEW FEATURES TAB (SIFT / SURF) -->
+      <li class="nav-item">
+        <button class="nav-link px-4 py-3 fw-semibold" data-section="features">🔍 Features</button>
+      </li>
+    </ul>
+
+    <!-- Controls -->
+    <div class="card shadow-sm border-0 rounded-4 mb-4">
+      <div class="card-body">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-3">
+            <input type="file" id="uploader" accept="image/*" class="form-control form-control-lg" />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label fw-semibold">Technique</label>
+            <select id="technique" class="form-select form-select-lg"></select>
+          </div>
+          <div class="col-md-6 d-flex gap-2">
+            <button id="runBtn" class="btn btn-primary btn-lg flex-grow-1 rounded-pill shadow-sm" disabled>▶ Run</button>
+            <button id="downloadBtn" class="btn btn-success btn-lg flex-grow-1 rounded-pill shadow-sm" disabled>💾 Download</button>
+            <button id="webcamBtn" class="btn btn-dark btn-lg flex-grow-1 rounded-pill shadow-sm">📷 Webcam</button>
+          </div>
+        </div>
+        <small id="cvStatus" class="text-muted mt-2 d-block">Backend ready ✔</small>
+      </div>
+    </div>
+
+    <!-- Dynamic Controls -->
+    <div class="card shadow-sm border-0 rounded-4 mb-4">
+      <div class="card-body" id="dynamicControls">
+        <!-- Sliders and controls will load dynamically -->
+      </div>
+    </div>
+
+    <!-- Panels -->
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <h5 class="fw-bold mb-3">Original</h5>
+            <img id="inputImg" class="img-fluid rounded-3 border" alt="input" />
+            <video id="inputVideo" autoplay playsinline hidden></video>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <h5 class="fw-bold mb-3">Result</h5>
+            <canvas id="output" class="w-100 border rounded-3"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: Explanation / calculation steps -->
+   <!-- NEW: Explanation / calculation steps -->
+<div class="card shadow-sm border-0 rounded-4 mt-4 custom-explain-card">
+  <div class="card-header bg-gradient fw-bold text-white">
+    🔍 <span class="text-dark">Processing Steps</span>
+  </div>
+  <div class="card-body p-4" id="explainPanel">
+    <p class="text-muted m-0">
+      Run a technique to see calculation steps here (kernels, sample patches, and computed intermediate values).
+    </p>
+  </div>
+</div>
+
+
+    <footer class="text-center mt-5">
+      <p class="text-muted mb-0">
+        Try <em>Canny</em>, <em>Sobel</em>, <em>Shi–Tomasi</em> — and the new <em>SIFT</em> / <em>SURF</em> (or ORB fallback).
+      </p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
